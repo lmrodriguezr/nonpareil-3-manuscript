@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 library(Nonpareil)
-require(methods)
+suppressMessages(require(methods))
 ds <- c('PFornix','Stool','Tongue','LL2011','LL2009A','LL2009B','Iowa')
 kern <- c('kmer','aln95','aln99')
 Nd <- list()
@@ -25,8 +25,6 @@ for(d in ds){
   }
   plot(np.set, legend.opts=FALSE, plot.model=TRUE, plot.diversity=TRUE,
         arrow.head=0.04, arrow.length=0.075, main=d)
-  #legend("bottomright", bty="n", legend=d)
-  #abline(v=np.out$LR, col='red')
 }
 
 plot(1, t='n', xlab='Nonpareil diversity index (Nd)', xlim=range(Nd)*c(0.9,1.1),
@@ -39,10 +37,10 @@ for(d in ds){
   text(Nd[[d]][1], 3/4, d, pos=4, srt=45, col="grey30")
 }
 
-dev.off()
+mm <- dev.off()
 
 t1 <- summary(all)
-t1 <- t(t1)[-3*(1:7),c(3,2,5)]
+t1 <- t1[-3*(1:7),c(3,2,5)]
 t1 <- cbind(t1[seq(2,14,2),], t1[seq(1,14,2),-1])[,c(1,2,4,3,5)]
 t1 <- t1*rep(c(1e-9,100,100,1e-9,1e-9),each=nrow(t1))
 rownames(t1) <- gsub("-.*","",rownames(t1))

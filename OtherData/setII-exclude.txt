@@ -1,0 +1,12 @@
+anterior_nares	SRS011263	0
+anterior_nares	SRS015640	30
+anterior_nares	SRS016033	10
+anterior_nares	SRS017244	0
+anterior_nares	SRS017451	0
+anterior_nares	SRS019119	77
+anterior_nares	SRS021483	0
+anterior_nares	SRS023970	0
+anterior_nares	SRS024567	4
+anterior_nares	SRS046973	60
+anterior_nares	SRS077085	50
+anterior_nares	SRS077501	35

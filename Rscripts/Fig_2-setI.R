@@ -1,8 +1,7 @@
 #!/usr/bin/env Rscript
 
 library(Nonpareil)
-require(methods)
-library(enveomics.R)
+suppressMessages(library(enveomics.R))
 
 coto.col <- c("#5BC0EB", "#FDE74C", "#9BC53D", "#E55934", 
    "#FA7921", "#EF476F", "#FFD166", "#06D6A0", "#118AB2", 
@@ -78,7 +77,7 @@ legend('bottomright',
   col=col, pch=16, bty='n', title='biome', pt.cex=1.5)
 legend('topleft', legend=c('Illumina','Ion Torrent','454'), pch=c(16,22,24),
   bty='n', title='Platform')
-dev.off()
+mm <- dev.off()
 
 pdf("../Plots/Fig_2-inset.pdf")
 plot(a$ssu.cov[a$biome!="z-mock"]*100,
@@ -89,7 +88,7 @@ plot(a$ssu.cov[a$biome!="z-mock"]*100,
 abline(h=0)
 legend("topleft", legend=cor(a$ssu.cov[a$biome!="z-mock"],
   (predict(m, a)-a$hc)[a$biome!="z-mock"]), bty="n")
-dev.off()
+mm <- dev.off()
 
 #==> Additional data <==
 a.m <-  a[a$biome=="z-mock",]

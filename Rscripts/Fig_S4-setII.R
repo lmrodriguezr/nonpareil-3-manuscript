@@ -1,7 +1,6 @@
 #!/usr/bin/env Rscript
 
 library(Nonpareil)
-require(methods)
 
 # Load metadata
 a <- read.table('../OtherData/setII-metadata.tsv', h=T, row.names=1, sep='\t')
@@ -118,7 +117,7 @@ legend('bottomright', bty='n',
    legend=paste("R =", signif(cor(a$NpDiv, a$Hprime, method='pearson'),3)))
 cat('n =', nrow(a), '\n')
 
-dev.off()
+mm <- dev.off()
 
 #==> Extra info <==
 

@@ -1,15 +1,13 @@
 #!/usr/bin/env Rscript
 
 library(Nonpareil)
-require(methods)
-library(enveomics.R)
+suppressMessages(library(enveomics.R))
 
 varexpl <- function(aov){
   aovss <- aov$"Sum Sq"[-1]
   cbind(aov,PctExp=c(NA,100*aovss/sum(aovss)))
 }
 
-if(FALSE){
 md <- list()
 for(collection in c("tara","beyster")){
   # Load metadata
@@ -63,7 +61,7 @@ abline(m, col='grey')
 legend("bottomright", pt.bg=col, pch=21, legend=levels(a$biome), bty="n")
 legend("topleft", paste("R:", signif(cor(a$hc, a$nd), 3)), bty="n")
 
-dev.off()
+mm <- dev.off()
 
 #==> Additional data <==
 a.t <- md[["tara"]]
@@ -88,7 +86,7 @@ cat("Medians:", median(a$nd)-median(a$hc), "\n")
 cat("Mean of diff:", mean(a$nd-a$hc), "\n")
 cat("Median of diff:", median(a$nd-a$hc), "\n")
 cat("\n")
-}
+
 cat("ANOVA Analyses\n")
 cat("==============\n")
 cat("## H'\n")

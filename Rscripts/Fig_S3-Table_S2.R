@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 library(Nonpareil)
-require(methods)
+suppressMessages(require(methods))
 
 pdf("../Plots/Fig_S3.pdf")
 layout(1:2)
@@ -41,11 +41,11 @@ for(ds in c("Sample1.0", "Sample10.0")){
         legend.opts=list(bty="n", cex=3/4))
   t[[ length(t)+1 ]] <- summary(np.set)
 }
-dev.off()
+mm <- dev.off()
 
 cat("Supplementary Table S2\n")
 cat("======================\n")
-ts2 <- rbind(t(t[[1]]), t(t[[2]]))[,c("C","LRstar")]
+ts2 <- rbind(t[[1]], t[[2]])[,c("C","LRstar")]
 ts2 <- cbind(ts2[c(1,2,4,6,8,9,11,13),],
       ts2[c(1,3,5,7,8,10,12,14),])[,c(1,3,2,4)]
 ts2 <- ts2*rep(c(100,1e-9), each=2*nrow(ts2))
