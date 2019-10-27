@@ -1,4 +1,4 @@
-sample  biome	sample	h	hc	ssu.cnt	ssu.cov
+sample	biome	sample	h	hc	ssu.cnt	ssu.cov
 Broiler_Caecum	animal-host	Broiler_Caecum	6.06763519491389	6.40242822057841	10169	0.484781405644715
 Gir_Cow_Rumen_IonTorrent	animal-host	Gir_Cow_Rumen_IonTorrent	5.97700894173099	6.12094599705373	833	0.27810650887574
 Human_Anterior_nares	animal-host	Human_Anterior_nares	4.53307942957721	4.69988923155525	4022	0.623417721518987
